@@ -723,7 +723,7 @@
           <p>详细健康和维护队列请使用上方 Tab。</p>
         </div>
 
-        <section class="report-section" aria-labelledby="repository-title">
+        <section class="report-section" data-module="repository-summary" aria-labelledby="repository-title">
           <h2 id="repository-title">一、仓库关键信息</h2>
           <div class="table-wrap">
             <table>
@@ -744,7 +744,7 @@
           <p class="risk-note"><strong>主要风险：</strong>开放 Issue 和 PR 中分别有 52.4% 与 52.6% 已超过 30 天，存量治理弱于新增需求识别。</p>
         </section>
 
-        <section class="report-section" aria-labelledby="feature-title">
+        <section class="report-section" data-module="feature-iterations" aria-labelledby="feature-title">
           <h2 id="feature-title">二、功能迭代信息</h2>
           <div class="table-wrap">
             <table>
@@ -783,7 +783,7 @@
           </div>
         </section>
 
-        <section class="report-section" aria-labelledby="ecosystem-title">
+        <section class="report-section" data-module="ecosystem-progress" aria-labelledby="ecosystem-title">
           <h2 id="ecosystem-title">三、生态相关进展</h2>
           <ul class="ecosystem-list">
             <li><strong>社区参与</strong><span>5 位新 Issue 提交者、2 位新 PR 作者、1 位合并贡献者。</span></li>
@@ -794,7 +794,7 @@
           </ul>
         </section>
 
-        <aside class="next-actions" aria-labelledby="next-title">
+        <aside class="next-actions" data-module="next-actions" aria-labelledby="next-title">
           <h2 id="next-title">下周关注</h2>
           <ol>
             <li>收敛并完成 <a href="https://github.com/iflytek/skillhub/pull/581">PR #581</a> 的 Review 与完整门禁。</li>
@@ -811,7 +811,7 @@
           <p>成功流水线不等同于“无漏洞”。</p>
         </div>
 
-        <section class="report-section" aria-labelledby="health-summary-title">
+        <section class="report-section" data-module="health-summary" aria-labelledby="health-summary-title">
           <h2 id="health-summary-title">项目健康状态</h2>
           <div class="table-wrap">
             <table>
@@ -832,7 +832,7 @@
           </div>
         </section>
 
-        <section class="report-section" aria-labelledby="ci-title">
+        <section class="report-section" data-module="workflow-execution" aria-labelledby="ci-title">
           <h2 id="ci-title">CI 与自动化执行</h2>
           <p class="section-lead">统计期内有 101 条 Actions 记录，其中 63 次实际执行；<code>action_required</code> 与条件性 <code>skipped</code> 不进入有效成功率分母。</p>
           <div class="table-wrap">
@@ -857,7 +857,7 @@
           <p class="risk-note"><strong>覆盖风险：</strong>部分外部 PR 仍等待工作流授权；这类记录表示检查未执行，不能解释为门禁通过。</p>
         </section>
 
-        <section class="report-section" aria-labelledby="delivery-title">
+        <section class="report-section" data-module="delivery-and-backlog" aria-labelledby="delivery-title">
           <h2 id="delivery-title">安全、Release 与存量健康</h2>
           <div class="health-grid">
             <article class="health-note">
@@ -879,7 +879,7 @@
           </div>
         </section>
 
-        <section class="report-section" aria-labelledby="response-title">
+        <section class="report-section" data-module="observable-response" aria-labelledby="response-title">
           <h2 id="response-title">社区响应</h2>
           <p>5 个新增 Issue 均在 15—19 秒内获得自动分诊，平均约 17 秒。按“维护者评论或形成配对 PR”统计，可观察人工处理覆盖率为 3/5。</p>
           <div class="table-wrap">
@@ -904,7 +904,7 @@
           <p>价值级别是人工治理判断，不替代仓库标签。</p>
         </div>
 
-        <section class="report-section" aria-labelledby="flow-title">
+        <section class="report-section" data-module="weekly-flow" aria-labelledby="flow-title">
           <h2 id="flow-title">本周 Issue 与 PR 流转</h2>
           <div class="flow-summary">
             <div class="flow-item"><strong>Issue +5 / -2</strong><span>净增 3 · 当前开放 21</span></div>
@@ -942,7 +942,7 @@
           </div>
         </section>
 
-        <section class="report-section" aria-labelledby="priority-title">
+        <section class="report-section" data-module="priority-queue" aria-labelledby="priority-title">
           <h2 id="priority-title">当前高价值维护队列</h2>
           <p class="section-lead">以下为 2026-07-23 22:00 快照，只列需要明确决策的 A/B 项；其余队列按主题合并，避免把周报变成全量工单导出。</p>
 
@@ -989,7 +989,7 @@
             </table>
           </div>
 
-          <details>
+          <details data-module="cleanup-queue">
             <summary>展开：需要清理的长期 PR</summary>
             <div class="details-body">
               <p><a href="https://github.com/iflytek/skillhub/pull/460">#460</a>、<a href="https://github.com/iflytek/skillhub/pull/457">#457</a>、<a href="https://github.com/iflytek/skillhub/pull/442">#442</a> 已被主干实现或替代；<a href="https://github.com/iflytek/skillhub/pull/437">#437</a> 依赖未推进的父 PR。建议在确认无剩余差异后关闭，减少队列噪音。</p>
@@ -1005,7 +1005,7 @@
           <p>缺失数据均标为“未取得”，不替换为 0。</p>
         </div>
 
-        <section class="report-section" aria-labelledby="method-title">
+        <section class="report-section" data-module="metric-definitions" aria-labelledby="method-title">
           <h2 id="method-title">统计口径</h2>
           <ul class="method-list">
             <li><strong>统计周期</strong><span>2026-07-13 00:00—2026-07-19 23:59，Asia/Shanghai；API 过滤使用等价 UTC 区间。</span></li>
@@ -1017,7 +1017,7 @@
           </ul>
         </section>
 
-        <section class="report-section" aria-labelledby="source-title">
+        <section class="report-section" data-module="source-coverage" aria-labelledby="source-title">
           <h2 id="source-title">数据来源与限制</h2>
           <div class="table-wrap">
             <table>
