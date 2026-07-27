@@ -5,6 +5,7 @@ SkillHub 的公开开源周报站点。默认入口展示最新一期，总览�
 ## 本地预览
 
 ```bash
+python3 scripts/sync_report_theme.py site/reports/*/index.html
 python3 scripts/build_site.py
 python3 scripts/validate_site.py _site
 python3 -m http.server 4173 --directory _site
@@ -16,8 +17,9 @@ python3 -m http.server 4173 --directory _site
 
 1. 在 `site/reports/<YYYY-Www>/index.html` 新增自包含 HTML。
 2. 在 `site/reports.json` 追加报告元数据，并更新 `latest`。
-3. 运行构建和校验命令。
-4. 合并到 `main` 后，GitHub Actions 使用官方 Pages artifact 自动发布。
+3. 修改统一主题后，运行 `scripts/sync_report_theme.py` 将 `assets/notion-light.css` 内联到各期报告。
+4. 运行构建和校验命令。
+5. 合并到 `main` 后，GitHub Actions 使用官方 Pages artifact 自动发布。
 
 报告遵循以下内容顺序：
 
@@ -37,6 +39,7 @@ site/
 └── reports/<week>/index.html
 scripts/
 ├── build_site.py
+├── sync_report_theme.py
 └── validate_site.py
 ```
 
