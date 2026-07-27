@@ -37,11 +37,17 @@ def load_manifest(source: Path) -> tuple[str, list[dict[str, str]]]:
 def render_archive(latest: str, reports: list[dict[str, str]]) -> str:
     rows = "\n".join(
         f"""        <li>
-          <div>
-            <a href="./{escape(report['path'], quote=True)}">{escape(report['title'])}</a>
-            <p>{escape(report['period'])} · 快照 {escape(report['snapshot'])}</p>
-          </div>
-          {'<span class="latest">最新</span>' if report['week'] == latest else ''}
+          <a class="report-link" href="./{escape(report['path'], quote=True)}">
+            <span class="report-copy">
+              <span class="report-kicker">
+                <span>{escape(report['week'])}</span>
+                {'<span class="latest">最新</span>' if report['week'] == latest else ''}
+              </span>
+              <strong>{escape(report['title'])}</strong>
+              <span class="report-meta">{escape(report['period'])} · 快照 {escape(report['snapshot'])}</span>
+            </span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
         </li>"""
         for report in reports
     )
@@ -51,27 +57,93 @@ def render_archive(latest: str, reports: list[dict[str, str]]) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>SkillHub 开源周报归档</title>
-  <style>
-    :root {{ color-scheme: light; --ink:#182230; --muted:#667085; --line:#d8dee8; --navy:#17365d; --bg:#edf1f5; }}
+  <style data-site-theme="notion-light">
+    :root {{
+      color-scheme: light;
+      --page:#fff;
+      --warm:#f6f5f4;
+      --ink:#0d0d0d;
+      --ink-soft:#31302e;
+      --muted:#615d59;
+      --faint:#76716c;
+      --line:#e5e3e1;
+      --blue:#0075de;
+      --blue-active:#005bab;
+      --green:#147a33;
+      --green-soft:#e9f7ec;
+      --focus:#097fe8;
+    }}
     * {{ box-sizing: border-box; }}
-    body {{ margin:0; background:var(--bg); color:var(--ink); font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif; }}
-    main {{ width:min(760px,calc(100% - 32px)); margin:32px auto; padding:34px 38px; background:#fff; border-top:6px solid var(--navy); }}
-    h1 {{ margin:0; color:var(--navy); font-size:30px; }}
-    .intro {{ margin:8px 0 28px; color:var(--muted); }}
-    ul {{ margin:0; padding:0; list-style:none; border-top:1px solid var(--line); }}
-    li {{ display:flex; justify-content:space-between; gap:20px; padding:16px 0; border-bottom:1px solid var(--line); }}
-    a {{ color:#175ea8; font-weight:750; text-underline-offset:3px; }}
-    p {{ margin:3px 0 0; color:var(--muted); font-size:12px; }}
-    .latest {{ align-self:flex-start; padding:2px 8px; color:#166b45; border:1px solid currentColor; border-radius:999px; font-size:11px; font-weight:800; }}
-    .back {{ display:inline-block; margin-top:24px; font-size:13px; }}
-    :focus-visible {{ outline:3px solid #2e79c7; outline-offset:3px; }}
-    @media (max-width:600px) {{ main {{ width:100%; min-height:100vh; margin:0; padding:28px 18px; }} }}
+    body {{
+      margin:0;
+      background:var(--page);
+      color:var(--ink);
+      font:15px/1.65 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }}
+    a {{ color:var(--blue); text-decoration:none; text-underline-offset:3px; }}
+    a:hover {{ color:var(--blue-active); }}
+    :focus-visible {{ outline:2px solid var(--focus); outline-offset:3px; }}
+    main {{ width:min(920px,100%); min-height:100vh; margin:0 auto; padding:44px 28px 56px; }}
+    .topline {{ display:flex; align-items:center; justify-content:space-between; gap:18px; margin-bottom:44px; }}
+    .brand {{ display:flex; align-items:center; gap:10px; color:var(--ink); }}
+    .brand-mark {{
+      display:inline-flex;
+      width:34px;
+      height:34px;
+      align-items:center;
+      justify-content:center;
+      border-radius:6px;
+      background:var(--ink-soft);
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.04em;
+    }}
+    .brand-name {{ font-size:17px; font-weight:700; letter-spacing:-.01em; }}
+    .brand-tag {{ padding:4px 10px; border-radius:999px; background:#f1f0ef; color:var(--muted); font-size:12px; font-weight:600; }}
+    .utility {{ display:flex; flex-wrap:wrap; gap:16px; font-size:13px; }}
+    h1 {{ margin:0; font-size:clamp(32px,5vw,44px); line-height:1.15; letter-spacing:-.025em; }}
+    .intro {{ margin:9px 0 30px; color:var(--muted); }}
+    .archive-summary {{ margin-bottom:18px; padding:18px 20px; border-radius:8px; background:var(--warm); color:var(--ink-soft); }}
+    .archive-summary strong {{ color:var(--ink); }}
+    ul {{ margin:0; padding:0; overflow:hidden; border:1px solid var(--line); border-radius:12px; list-style:none; }}
+    li + li {{ border-top:1px solid var(--line); }}
+    .report-link {{ display:flex; align-items:center; justify-content:space-between; gap:24px; padding:20px 22px; color:var(--ink); }}
+    .report-link:hover {{ background:#faf9f8; text-decoration:none; }}
+    .report-copy {{ display:flex; min-width:0; flex-direction:column; gap:4px; }}
+    .report-kicker {{ display:flex; align-items:center; gap:8px; color:var(--faint); font-size:12px; font-weight:600; }}
+    .report-copy strong {{ color:var(--ink); font-size:17px; line-height:1.4; }}
+    .report-meta {{ color:var(--muted); font-size:12.5px; }}
+    .latest {{ padding:2px 8px; border-radius:999px; background:var(--green-soft); color:var(--green); font-size:11px; font-weight:700; }}
+    .arrow {{ flex:0 0 auto; color:var(--faint); font-size:20px; transition:transform .15s ease; }}
+    .report-link:hover .arrow {{ transform:translateX(3px); color:var(--ink); }}
+    .back {{ display:inline-block; margin-top:24px; font-size:13px; font-weight:600; }}
+    @media (max-width:600px) {{
+      main {{ padding:28px 18px 40px; }}
+      .topline {{ align-items:flex-start; flex-direction:column; gap:12px; margin-bottom:34px; }}
+      .report-link {{ align-items:flex-start; padding:18px; }}
+      .report-copy strong {{ font-size:15px; }}
+    }}
+    @media (prefers-reduced-motion:reduce) {{ .arrow {{ transition:none; }} }}
   </style>
 </head>
 <body>
   <main>
+    <div class="topline">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">SH</span>
+        <span class="brand-name">SkillHub</span>
+        <span class="brand-tag">开源周报</span>
+      </div>
+      <nav class="utility" aria-label="站点链接">
+        <a href="https://iflytek.github.io/skillhub/">项目文档</a>
+        <a href="https://github.com/iflytek/skillhub">GitHub 仓库</a>
+      </nav>
+    </div>
     <h1>SkillHub 开源周报归档</h1>
-    <p class="intro">共 {len(reports)} 期，按统计周期倒序排列。</p>
+    <p class="intro">按统计周期倒序查看历期开源周报。</p>
+    <div class="archive-summary">当前共收录 <strong>{len(reports)} 期</strong>，最新一期为 <strong>{escape(latest)}</strong>。</div>
     <ul>
 {rows}
     </ul>

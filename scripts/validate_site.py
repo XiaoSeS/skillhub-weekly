@@ -164,6 +164,29 @@ def validate(root: Path) -> list[str]:
     if not latest:
         errors.append("manifest latest is empty")
 
+    archive_path = root / "archive.html"
+    if archive_path.is_file():
+        archive_source = archive_path.read_text(encoding="utf-8")
+        archive_parser = PageParser()
+        archive_parser.feed(archive_source)
+        if archive_parser.h1_count != 1:
+            errors.append(
+                f"{archive_path}: expected one h1, found {archive_parser.h1_count}"
+            )
+        if 'data-site-theme="notion-light"' not in archive_source:
+            errors.append(f"{archive_path}: missing notion-light theme marker")
+        report_link_count = archive_source.count('class="report-link"')
+        if report_link_count != len(payload.get("reports", [])):
+            errors.append(
+                f"{archive_path}: expected one archive link per report, "
+                f"found {report_link_count}"
+            )
+        if archive_parser.external_assets:
+            errors.append(
+                f"{archive_path}: external assets are not allowed: "
+                f"{archive_parser.external_assets}"
+            )
+
     pages_to_validate = [root / "index.html", *report_paths]
     for index_path in pages_to_validate:
         if not index_path.is_file():
