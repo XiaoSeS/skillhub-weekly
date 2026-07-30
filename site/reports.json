@@ -1,6 +1,13 @@
 {
-  "latest": "2026-W30",
+  "latest": "2026-W31",
   "reports": [
+    {
+      "week": "2026-W31",
+      "title": "SkillHub 开源周报｜2026 年第 31 周·周中快照",
+      "period": "2026-07-27—2026-07-30（周中）",
+      "snapshot": "2026-07-30 15:35 Asia/Shanghai",
+      "path": "reports/2026-W31/"
+    },
     {
       "week": "2026-W30",
       "title": "SkillHub 开源周报｜2026 年第 30 周",

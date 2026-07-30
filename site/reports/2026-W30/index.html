@@ -1025,6 +1025,15 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .header-grid > *,
+  .meta-item {
+    min-width: 0;
+  }
+
+  .meta-item .value {
+    overflow-wrap: anywhere;
+  }
+
   .metrics {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1062,6 +1071,11 @@ footer {
 }
 
 @media (max-width: 430px) {
+  h1 {
+    font-size: 30px;
+    overflow-wrap: anywhere;
+  }
+
   .bar-row {
     grid-template-columns: 76px 1fr 32px;
     gap: 7px;
