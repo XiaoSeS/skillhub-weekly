@@ -1198,9 +1198,12 @@ footer {
     data-period-end="2026-07-30T00:00:00+08:00"
     data-period-boundary="[)"
     data-snapshot-at="2026-07-31T14:35:33+08:00"
-    data-star-evidence="snapshot-only"
+    data-star-evidence="current-visible-arrivals"
+    data-star-api-status="success"
+    data-star-arrivals="165"
+    data-star-observed-at="2026-07-31T15:48:23+08:00"
     data-star-start-at=""
-    data-star-end-at="2026-07-31T14:35:33+08:00">
+    data-star-end-at="">
     <header class="masthead">
       <div class="topline">
         <div class="brand">
@@ -1233,7 +1236,7 @@ footer {
             </div>
             <div class="meta-item">
               <span class="key">数据来源</span>
-              <span class="value">GitHub REST API · Actions · Git · npm Downloads API</span>
+              <span class="value">GitHub API（认证）· Actions · Git · npm Downloads API</span>
             </div>
           </div>
         </div>
@@ -1247,7 +1250,7 @@ footer {
         </div>
       </div>
       <div class="metrics" aria-label="四项核心指标">
-        <div class="metric"><strong>4,890</strong><span>Stars · 当前快照，周增量未取得</span></div>
+        <div class="metric"><strong>4,891</strong><span>Stars · 本期当前可见新增 165</span></div>
         <div class="metric"><strong>703</strong><span>Forks · 本期当前可见创建 50</span></div>
         <div class="metric"><strong>97.6%</strong><span>Actions 有效成功率 · 203/208</span></div>
         <div class="metric"><strong>0 / 0</strong><span>应用 / CLI Release · 本期</span></div>
@@ -1283,8 +1286,8 @@ footer {
               <div class="snapshot-list">
                 <div class="snapshot-row">
                   <span class="snapshot-label">Stars</span>
-                  <strong>4,890</strong>
-                  <span class="snapshot-change missing">周增量未取得</span>
+                  <strong>4,891</strong>
+                  <span class="snapshot-change positive">本期当前可见新增 165</span>
                 </div>
                 <div class="snapshot-row">
                   <span class="snapshot-label">Forks</span>
@@ -1292,7 +1295,7 @@ footer {
                   <span class="snapshot-change positive">当前可见本期创建 50</span>
                 </div>
               </div>
-              <p class="chart-note">Stars 仅有 7 月 31 日快照，不能反推周增量；Fork 为当前列表中创建时间落在半开周期内的可见记录，不代表净增长。</p>
+              <p class="chart-note">Stars 与 Forks 的本期值按认证 API 中当前仍可见、创建时间落入半开周期的记录统计；分别为 165 与 50，不代表库存净增长。</p>
             </div>
             <div class="chart-box" data-module="weekly-collaboration-chart">
               <h3>本期协作流转</h3>
@@ -1641,9 +1644,9 @@ footer {
           <h2 id="method-title">统计口径</h2>
           <ul class="method-list">
             <li><strong>统计周期</strong><span>2026-07-23 00:00—2026-07-30 00:00，Asia/Shanghai，采用半开区间 <code>[period_start, period_end)</code>；对应 UTC 为 7 月 22 日 16:00 至 7 月 29 日 16:00。</span></li>
-            <li><strong>当前快照</strong><span>2026-07-31 14:35；开放队列、仓库累计数及年龄结构均取该时点，周期结束后的变化不计入本期流量。</span></li>
+            <li><strong>当前快照</strong><span>2026-07-31 14:35；开放队列、Fork 累计数及年龄结构取该时点。Star 总量与新增证据更新于 15:48；周期结束后的变化不计入本期流量。</span></li>
             <li><strong>周期衔接</strong><span>W30 截止时间与 W31 起始时间均为 7 月 23 日 00:00，相邻报告无重叠；边界时刻事件只进入后一周期。</span></li>
-            <li><strong>Star 证据</strong><span>当前 Stars 为 4,890；未取得周期起止两份可比库存快照，因此不报告 Star 周增量，也不使用当前 Stargazer 列表反推净增长。</span></li>
+            <li><strong>Star 证据</strong><span>7 月 31 日 15:48 的当前 Stars 为 4,891；165 表示同次认证 API 查询中，<code>starred_at</code> 落入本期且当前仍可见的 Stargazer。该值不是周期净增长，也不能替代起止库存快照。</span></li>
             <li><strong>Fork 证据</strong><span>当前 Forks 为 703；50 表示当前列表中创建时间落在本期的可见记录，不代表 Fork 库存净增长。</span></li>
             <li><strong>Actions 成功率</strong><span><code>success / (success + failure)</code>；等待授权、条件跳过和取消不进入分母。</span></li>
             <li><strong>Issue / PR</strong><span>GitHub Issues API 会同时返回 PR，本报告分开统计；价值 A—D 为人工治理判断。</span></li>
@@ -1660,7 +1663,7 @@ footer {
               <caption>来源覆盖</caption>
               <thead><tr><th>来源</th><th>用途</th><th>限制</th></tr></thead>
               <tbody>
-                <tr><td>GitHub REST API</td><td>仓库、Issue、PR、Release、Actions、Fork、Stargazer</td><td>Traffic 与私有安全告警不可见。</td></tr>
+                <tr><td>GitHub API（认证）</td><td>仓库、Issue、PR、Release、Actions、Fork、Stargazer <code>starred_at</code></td><td>没有周期起止两份库存快照；当前可见新增不等于净增长。</td></tr>
                 <tr><td>Git 标签与提交历史</td><td>主分支提交、Merge Commit 与 Release 时间核对</td><td>v0.2.15 属于期后；CLI 仍以 npm 0.1.9 为最新版本。</td></tr>
                 <tr><td>npm Downloads API</td><td><code>@astron-team/skillhub</code> 的 7 个 UTC 日桶</td><td>1,041 次下载不等同于独立用户，且覆盖范围与本报告时区边界不完全对齐。</td></tr>
                 <tr><td>维护者人工判断</td><td>价值排序、推广动作和产品边界</td><td>推广动作尚未提供。</td></tr>
