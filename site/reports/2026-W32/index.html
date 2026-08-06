@@ -1203,7 +1203,11 @@ footer {
     data-star-evidence="current-visible-arrivals"
     data-star-api-status="success"
     data-star-arrivals="72"
+    data-star-observed-total="4839"
     data-star-observed-at="2026-08-06T15:28:48+08:00"
+    data-star-previous-observed-total="4849"
+    data-star-previous-observed-at="2026-07-31T16:35:00+08:00"
+    data-star-observation-delta="-10"
     data-star-start-at=""
     data-star-end-at="">
     <header class="masthead">
@@ -1252,7 +1256,7 @@ footer {
         </div>
       </div>
       <div class="metrics" aria-label="四项核心指标">
-        <div class="metric"><strong>4,839</strong><span>Stars · 本期当前可见新增 72</span></div>
+        <div class="metric"><strong>4,839</strong><span>Stars · 较上次观测 -10</span></div>
         <div class="metric"><strong>765</strong><span>Forks · 本期当前可见创建 80 · 试用信号</span></div>
         <div class="metric"><strong>98.0%</strong><span>Actions 有效成功率 · 244/249 · 执行稳定</span></div>
         <div class="metric"><strong>0 / 0</strong><span>应用 / CLI Release · 截至 15:24 · 尚待结报</span></div>
@@ -1289,7 +1293,7 @@ footer {
                 <div class="snapshot-row">
                   <span class="snapshot-label">Stars</span>
                   <strong>4,839</strong>
-                  <span class="snapshot-change positive">本期当前可见新增 72</span>
+                  <span class="snapshot-change">较 7 月 31 日 16:35 观测值减少 10</span>
                 </div>
                 <div class="snapshot-row">
                   <span class="snapshot-label">Forks</span>
@@ -1297,7 +1301,7 @@ footer {
                   <span class="snapshot-change positive">当前可见本期创建 80</span>
                 </div>
               </div>
-              <p class="chart-note">Stars 与 Forks 的本期值按认证 API 中当前仍可见、时间落入部分周期的记录统计；分别为 72 与 80，不代表库存净增长。</p>
+              <p class="chart-note">Star 库存从上次观测的 4,849 降至 4,839，观测点间净变化为 -10。本期当前可见新增 72 个 Stargazer，但新增与取消会同时发生，72 不是净增长。两次观测不在严格周期边界，因此 -10 也不表述为周净增长。Fork 的 80 是本期当前仍可见的创建记录，同样不是库存净增长。</p>
             </div>
             <div class="chart-box" data-module="weekly-collaboration-chart">
               <h3>本期协作流转</h3>
@@ -1644,7 +1648,7 @@ footer {
             <li><strong>当前覆盖</strong><span>本报告尚未截止，实际事件过滤区间为 <code>[2026-07-31 00:00, 2026-08-06 15:24:48)</code>，对应 UTC 为 <code>[2026-07-30 16:00, 2026-08-06 07:24:48)</code>。</span></li>
             <li><strong>当前快照</strong><span>2026-08-06 15:24；开放队列、Fork 累计数及年龄结构取该时点。Star 证据于 15:28 完成采集，事件流仍按 15:24 排他截止过滤。</span></li>
             <li><strong>周期衔接</strong><span>W31 的排他截止与 W32 起始均为 7 月 31 日 00:00，相邻报告无重叠；本快照后的事件将在正式结报刷新时补入。</span></li>
-            <li><strong>Star 证据</strong><span>8 月 6 日 15:28 的当前 Stars 为 4,839；72 表示同次认证 API 查询中，<code>starred_at</code> 落入部分周期且当前仍可见的 Stargazer。完整分页数量与仓库总数均为 4,839；该值不是周期净增长，也不能替代起止库存快照。</span></li>
+            <li><strong>Star 证据</strong><span>7 月 31 日 16:35 的认证 API 观测值为 4,849，8 月 6 日 15:28 为 4,839，两个观测点之间的库存净变化为 -10。同期有 72 个 <code>starred_at</code> 落入部分周期且在后一次查询时仍可见的新增 Stargazer；新增与取消 Star 会同时发生，因此 72 不是净增长。完整分页数量与仓库总数均为 4,839。由于两次观测不在严格周期边界，-10 仅表示观测点间变化，也不能称为本周净增长。</span></li>
             <li><strong>Fork 证据</strong><span>当前 Forks 为 765；80 表示当前列表中创建时间落在部分周期的可见记录，不代表 Fork 库存净增长。</span></li>
             <li><strong>Actions 成功率</strong><span><code>success / (success + failure)</code>；等待授权、条件跳过和取消不进入分母。</span></li>
             <li><strong>Issue / PR</strong><span>GitHub Issues API 会同时返回 PR，本报告分开统计；PR 指标、列表和价值队列只纳入目标分支为 <code>main</code> 的记录。本期新增 17、合并 16、关闭未合并 7。价值 A—D 为人工治理判断。</span></li>
