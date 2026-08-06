@@ -1233,8 +1233,8 @@ footer {
               <span class="value">2026-07-31—2026-08-06 · Asia/Shanghai</span>
             </div>
             <div class="meta-item">
-              <span class="key">结报方式</span>
-              <span class="value">维护者下班前人工结报</span>
+              <span class="key">PR 统计分支</span>
+              <span class="value"><code>main</code></span>
             </div>
             <div class="meta-item">
               <span class="key">项目仓库</span>
@@ -1382,7 +1382,7 @@ footer {
       <div class="tab-panel" id="panel-health" role="tabpanel" tabindex="0"
         aria-labelledby="tab-health" data-panel="health" hidden>
         <div class="panel-intro">
-          <p>项目健康详情：用于维护者判断工程、交付和治理风险。</p>
+          <p>项目健康详情：用于判断工程、交付和治理风险。</p>
           <p>成功流水线不等同于“无漏洞”。</p>
         </div>
 
@@ -1490,7 +1490,7 @@ footer {
           <div class="chart-grid">
             <div class="chart-box" data-module="issue-age-chart">
               <h3>开放 Issue 年龄结构</h3>
-              <div class="bars" role="img" aria-label="W32 结报时开放 Issue 33 个：不足 7 天 2 个，7 到 13 天 12 个，14 到 29 天 6 个，30 天以上 13 个">
+              <div class="bars" role="img" aria-label="W32 统计时点开放 Issue 33 个：不足 7 天 2 个，7 到 13 天 12 个，14 到 29 天 6 个，30 天以上 13 个">
                 <div class="bar-row"><span class="bar-label">&lt; 7 天</span><span class="bar-track"><span class="bar-fill" style="width:15.4%"></span></span><span class="bar-value">2</span></div>
                 <div class="bar-row"><span class="bar-label">7—13 天</span><span class="bar-track"><span class="bar-fill" style="width:92.3%"></span></span><span class="bar-value">12</span></div>
                 <div class="bar-row"><span class="bar-label">14—29 天</span><span class="bar-track"><span class="bar-fill" style="width:46.2%"></span></span><span class="bar-value">6</span></div>
@@ -1501,7 +1501,7 @@ footer {
             <div class="chart-box" data-module="issue-needs-info-chart">
               <h3><code>needs-info</code> 占比</h3>
               <div class="donut-layout">
-                <div class="donut" style="--value:48.5%" role="img" aria-label="W32 结报时开放 Issue 中，16 个带 triage/needs-info 标签，占 33 个开放 Issue 的 48.5%">
+                <div class="donut" style="--value:48.5%" role="img" aria-label="W32 统计时点开放 Issue 中，16 个带 triage/needs-info 标签，占 33 个开放 Issue 的 48.5%">
                   <div class="donut-center"><strong>48.5%</strong><span>16 / 33</span></div>
                 </div>
                 <div class="donut-copy">
@@ -1514,7 +1514,7 @@ footer {
           <h3>PR 健康</h3>
           <div class="chart-box" data-module="pr-age-chart">
             <h3>开放 PR 年龄结构</h3>
-            <div class="bars" role="img" aria-label="W32 结报时开放 PR 10 个：不足 7 天 3 个，7 到 13 天 2 个，14 到 29 天 2 个，30 天以上 3 个">
+            <div class="bars" role="img" aria-label="W32 统计时点开放 PR 10 个：不足 7 天 3 个，7 到 13 天 2 个，14 到 29 天 2 个，30 天以上 3 个">
               <div class="bar-row"><span class="bar-label">&lt; 7 天</span><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><span class="bar-value">3</span></div>
               <div class="bar-row"><span class="bar-label">7—13 天</span><span class="bar-track"><span class="bar-fill" style="width:66.7%"></span></span><span class="bar-value">2</span></div>
               <div class="bar-row"><span class="bar-label">14—29 天</span><span class="bar-track"><span class="bar-fill" style="width:66.7%"></span></span><span class="bar-value">2</span></div>
@@ -1575,7 +1575,7 @@ footer {
 
         <section class="report-section" data-module="priority-queue" aria-labelledby="priority-title">
           <h2 id="priority-title">当前高价值维护队列</h2>
-          <p class="section-lead">以下为结报时需要明确决策的 A/B 项；价值分级是维护治理判断，不替代仓库现有 P1/P2 标签。</p>
+          <p class="section-lead">以下为统计时点需要明确决策的 A/B 项；价值分级是治理判断，不替代仓库现有 P1/P2 标签。</p>
 
           <h3>Issue：A 级优先处理</h3>
           <div class="table-wrap">
@@ -1645,19 +1645,19 @@ footer {
         <section class="report-section" data-module="metric-definitions" aria-labelledby="method-title">
           <h2 id="method-title">统计口径</h2>
           <ul class="method-list">
-            <li><strong>正式周期</strong><span>W32 展示范围为 2026-07-31—2026-08-06，Asia/Shanghai；维护者于周四下班前人工结报。</span></li>
-            <li><strong>结报边界</strong><span>事件统一过滤区间为 <code>[2026-07-31 00:00:00, 2026-08-06 18:47:26)</code>，对应 UTC 为 <code>[2026-07-30 16:00:00, 2026-08-06 10:47:26)</code>。</span></li>
-            <li><strong>数据快照</strong><span>开放队列、仓库库存及年龄结构以结报时的认证 API 为准；Star 完整分页于 18:50 完成，事件流仍使用 18:47:26 的排他边界。</span></li>
-            <li><strong>周期衔接</strong><span>W31 的排他截止与 W32 起始均为 7 月 31 日 00:00，相邻报告无重叠；人工结报后的事件不计入 W32。</span></li>
+            <li><strong>统计范围</strong><span>W32 展示范围为 2026-07-31—2026-08-06，Asia/Shanghai。</span></li>
+            <li><strong>统计边界</strong><span>事件统一过滤区间为 <code>[2026-07-31 00:00:00, 2026-08-06 18:47:26)</code>，对应 UTC 为 <code>[2026-07-30 16:00:00, 2026-08-06 10:47:26)</code>。</span></li>
+            <li><strong>数据快照</strong><span>开放队列、仓库库存及年龄结构以统计时点的认证 API 为准；Star 完整分页于 18:50 完成，事件流仍使用 18:47:26 的排他边界。</span></li>
+            <li><strong>周期衔接</strong><span>W31 的排他截止与 W32 起始均为 7 月 31 日 00:00，相邻报告无重叠；统计边界后的事件不计入 W32。</span></li>
             <li><strong>Star 证据</strong><span>7 月 31 日 16:35 的认证 API 观测值为 4,849，8 月 6 日 18:50 为 4,844，两个观测点之间的库存净变化为 -5。同期有 77 个 <code>starred_at</code> 落入本期且在后一次查询时仍可见的新增 Stargazer；新增与取消 Star 会同时发生，因此 77 不是净增长。完整分页数量与仓库总数均为 4,844。由于两次库存观测不在严格周期边界，-5 仅表示观测点间变化。</span></li>
             <li><strong>Fork 证据</strong><span>仓库库存字段为 768；Fork 列表接口完整分页返回 1,023 条，两个认证 API 来源不一致，因此本期不展示 Fork 到达数，也不推断 Fork 净增长。</span></li>
             <li><strong>Actions 成功率</strong><span><code>success / (success + failure)</code>；等待授权、条件跳过和取消不进入分母。</span></li>
-            <li><strong>Issue / PR</strong><span>GitHub Issues API 会同时返回 PR，本报告分开统计；PR 指标、列表和价值队列只纳入目标分支为 <code>main</code> 的记录。本期新增 18、合并 17、关闭未合并 7。价值 A—D 为人工治理判断。</span></li>
+            <li><strong>Issue / PR</strong><span>GitHub Issues API 会同时返回 PR，本报告分开统计；PR 指标、列表和价值队列只纳入目标分支为 <code>main</code> 的记录。本期新增 18、合并 17、关闭未合并 7。价值 A—D 为治理判断。</span></li>
             <li><strong>交付状态</strong><span>合入 <code>main</code>、进入 Release、生产部署是不同状态。本报告没有生产部署证据，因此不使用“已上线”结论。</span></li>
             <li><strong>Release</strong><span>应用与 CLI Release 均为 0；最新应用版本 v0.2.15 发布于 W32 开始前，不计入本期。“每周一个 Release”目标本期未达成。</span></li>
-            <li><strong>npm 下载</strong><span>504 次覆盖 2026-07-31—2026-08-05 的 6 个已结算 UTC 日桶；8 月 6 日桶尚未结算，不以 0 计入。该范围与 Asia/Shanghai 结报边界不完全对齐，因此只作为生态观察。</span></li>
+            <li><strong>npm 下载</strong><span>504 次覆盖 2026-07-31—2026-08-05 的 6 个已结算 UTC 日桶；8 月 6 日桶尚未结算，不以 0 计入。该范围与 Asia/Shanghai 统计边界不完全对齐，因此只作为生态观察。</span></li>
             <li><strong>Traffic</strong><span>5,220 次浏览与 3,423 次克隆覆盖相同 6 个 UTC 日桶；逐日 uniques 不相加为全周期独立用户。</span></li>
-            <li><strong>推广数据</strong><span>文章、直播、社区分享和合作项目由维护者补录；本期未提供，因而不展示推广模块，也不记为 0。</span></li>
+            <li><strong>推广数据</strong><span>文章、直播、社区分享和合作项目由项目方提供；本期未提供，因而不展示推广模块，也不记为 0。</span></li>
           </ul>
         </section>
 
@@ -1672,18 +1672,18 @@ footer {
                 <tr><td>GitHub Traffic API</td><td>6 个 UTC 日桶的 Views 与 Clones</td><td>日桶与 Asia/Shanghai 边界不完全对齐；日 uniques 不可跨日求和。</td></tr>
                 <tr><td>Git 标签与提交历史</td><td>主分支合并与 Release 时间核对</td><td>最新 v0.2.15 在 W32 开始前发布；本期无 Release。</td></tr>
                 <tr><td>npm Downloads API</td><td><code>@astron-team/skillhub</code> 的 6 个已结算 UTC 日桶</td><td>504 次下载不等同于独立用户，且覆盖范围与本报告时区边界不完全对齐。</td></tr>
-                <tr><td>维护者人工判断</td><td>价值排序、推广动作和产品边界</td><td>推广动作尚未提供。</td></tr>
+                <tr><td>人工治理判断</td><td>价值排序、推广动作和产品边界</td><td>推广动作尚未提供。</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="risk-note"><strong>未取得：</strong>GitHub Referrers、W32 起止两份可比 Star/Fork 库存快照、可信的本期 Fork 到达数、私有安全告警，以及生产 SkillHub 实例的可用率、延迟、Skill 数量和扫描成功率。推广动作未由维护者提供，因此省略对应模块。</p>
+          <p class="risk-note"><strong>未取得：</strong>GitHub Referrers、W32 起止两份可比 Star/Fork 库存快照、可信的本期 Fork 到达数、私有安全告警，以及生产 SkillHub 实例的可用率、延迟、Skill 数量和扫描成功率。推广动作未由项目方提供，因此省略对应模块。</p>
         </section>
       </div>
     </main>
 
     <footer>
       <span>SkillHub Open Source Weekly · 2026-W32</span>
-      <span>正式周报 · 人工结报 · 维护者治理视图</span>
+      <span>SkillHub 开源周报 · 项目治理视图</span>
     </footer>
   </article>
 
