@@ -1241,8 +1241,8 @@ footer {
     </div>
     <div class="metrics" aria-label="四项核心指标">
       <div class="metric"><strong>5,502</strong><span>Stars · 较上次观测 +54；当前可见新增 83，不代表净增长</span></div>
-      <div class="metric"><strong>+13 / −11</strong><span>Issue 新增 / 关闭 · 开放 32</span></div>
-      <div class="metric"><strong>+20 / 15</strong><span>PR 新增 / 合并 · 开放 13</span></div>
+      <div class="metric"><strong>13 / 11</strong><span>Issue 新增 / 关闭 · 开放 32</span></div>
+      <div class="metric"><strong>20 / 15</strong><span>PR 新增 / 合并 · 开放 13</span></div>
       <div class="metric"><strong>94.5%</strong><span>Actions 有效成功率 · 570 / 603</span></div>
     </div>
   </header>
@@ -1261,15 +1261,17 @@ footer {
   <main id="content">
     <div class="tab-panel" id="panel-overview" role="tabpanel" tabindex="0"
       aria-labelledby="tab-overview" data-panel="overview">
-      <p class="panel-intro">三分钟总览：只保留仓库、迭代和生态三类决策信息。</p>
+      <p class="panel-intro">三分钟总览：仓库、迭代、生态与下周关注。</p>
       <section class="report-section" data-module="repository-summary">
   <h2>一、仓库关键信息</h2>
   <p class="section-lead">v0.2.28 发布；企业身份与 CLI 能力集中合入；PR 合并 15 个。</p>
   <div class="repo-visuals">
     <div class="chart-box" data-module="repository-scale">
       <h3>规模快照</h3>
-      <div class="snapshot-row"><span>Stars</span><strong>5,502</strong><span>较上次观测 <b>+54</b>（不代表净增长）</span></div>
-      <div class="snapshot-row"><span>Forks</span><strong>827</strong><span>较上次观测 <b>+10</b></span></div>
+      <div class="snapshot-list">
+        <div class="snapshot-row"><span class="snapshot-label">Stars</span><strong>5,502</strong><span class="snapshot-change positive">较上次观测 +54（不代表净增长）</span></div>
+        <div class="snapshot-row"><span class="snapshot-label">Forks</span><strong>827</strong><span class="snapshot-change positive">较上次观测 +10</span></div>
+      </div>
     </div>
     <div class="chart-box" data-module="weekly-collaboration-chart">
       <h3>协作流转</h3>
@@ -1282,7 +1284,7 @@ footer {
 </div>
     </div>
   </div>
-  <p class="callout">开放 Issue 32 个、PR 13 个。Actions 失败 33 次，集中在 backend-tests 9 次与 PR CLI 8 次。风险：本期合并的企业身份与 DSH 变更尚未进入应用版本。</p>
+  <p class="section-lead">开放 Issue 32 个、PR 13 个；Actions 失败 33 次，集中在 backend-tests 9 次与 PR CLI 8 次。风险：本期合并的企业身份与 V129 Token 兼容修复尚未进入应用版本（DSH 已发布 npm 0.7.0）。</p>
 </section>
       <section class="report-section" data-module="feature-iterations">
   <h2>二、功能迭代信息</h2>
@@ -1290,29 +1292,31 @@ footer {
     <caption class="sr-only">本期功能交付与合并状态</caption>
     <thead><tr><th>状态</th><th>事项</th><th>本期进展</th><th>依据</th></tr></thead>
     <tbody>
-    <tr><td>已发布 · v0.2.28</td><td>市场来源分离与批量审核</td><td>平台与 GitHub 来源分开展示，支持仓库浏览与固定版本快照下载；审核支持显式多选批量审批，Token 能力细分并经安全扫描后支持团队内自动发布。</td><td><a href="https://github.com/iflytek/skillhub/pull/1100">#1100</a> / <a href="https://github.com/iflytek/skillhub/pull/1107">#1107</a> / <a href="https://github.com/iflytek/skillhub/releases/tag/v0.2.28">Release</a></td></tr><tr><td>已合入 main</td><td>企业身份</td><td>组织成员与角色管理、企业 OIDC 连接管理上线；组织 OIDC 员工登录试点（R1-C）随后合入，待应用版本发布。</td><td><a href="https://github.com/iflytek/skillhub/pull/1133">#1133</a> / <a href="https://github.com/iflytek/skillhub/pull/1138">#1138</a> / <a href="https://github.com/iflytek/skillhub/pull/1146">#1146</a></td></tr><tr><td>已合入 main</td><td>CLI 发现与诊断</td><td>新增只读 outdated 与 doctor --health，显示升级幅度、本地修改状态和凭证有效性；支持仓库成套安装与安全升级。</td><td><a href="https://github.com/iflytek/skillhub/pull/1117">#1117</a> / <a href="https://github.com/iflytek/skillhub/pull/1128">#1128</a> / <a href="https://github.com/iflytek/skillhub/pull/1111">#1111</a> / <a href="https://github.com/iflytek/skillhub/pull/1112">#1112</a></td></tr><tr><td>已合入 main</td><td>GitHub 同步与审核</td><td>同步版本记录并展示上游仓库 tag 来源；审核队列可按当前扫描结论筛选；设备授权完成后显示明确状态。</td><td><a href="https://github.com/iflytek/skillhub/pull/1129">#1129</a> / <a href="https://github.com/iflytek/skillhub/pull/1126">#1126</a> / <a href="https://github.com/iflytek/skillhub/pull/1127">#1127</a></td></tr><tr><td>已合入 main</td><td>DSH 0.7.0 与数据兼容</td><td>DSH 账号接入与命名空间成员管理发布 0.7.0；V129 保留历史 Token 权限范围。</td><td><a href="https://github.com/iflytek/skillhub/pull/1114">#1114</a> / <a href="https://github.com/iflytek/skillhub/pull/1140">#1140</a> / <a href="https://github.com/iflytek/skillhub/pull/1142">#1142</a></td></tr>
+    <tr><td>已发布 · v0.2.28</td><td>市场来源分离与批量审核</td><td>平台与 GitHub 来源分开展示，支持仓库浏览与固定版本快照下载；审核支持显式多选批量审批，Token 能力细分并经安全扫描后支持团队内自动发布。</td><td><a href="https://github.com/iflytek/skillhub/pull/1100">#1100</a> / <a href="https://github.com/iflytek/skillhub/pull/1107">#1107</a> / <a href="https://github.com/iflytek/skillhub/releases/tag/v0.2.28">Release</a></td></tr><tr><td>已合入 main</td><td>企业身份</td><td>组织成员与角色管理、企业 OIDC 连接管理上线；组织 OIDC 员工登录试点（R1-C）随后合入，待应用版本发布。</td><td><a href="https://github.com/iflytek/skillhub/pull/1133">#1133</a> / <a href="https://github.com/iflytek/skillhub/pull/1138">#1138</a> / <a href="https://github.com/iflytek/skillhub/pull/1146">#1146</a></td></tr><tr><td>已合入 main</td><td>CLI 发现与诊断</td><td>新增只读 outdated 与 doctor --health，显示升级幅度、本地修改状态和凭证有效性；支持仓库成套安装与安全升级。</td><td><a href="https://github.com/iflytek/skillhub/pull/1117">#1117</a> / <a href="https://github.com/iflytek/skillhub/pull/1128">#1128</a> / <a href="https://github.com/iflytek/skillhub/pull/1111">#1111</a> / <a href="https://github.com/iflytek/skillhub/pull/1112">#1112</a></td></tr><tr><td>已合入 main</td><td>GitHub 同步与审核</td><td>同步版本记录并展示上游仓库 tag 来源；审核队列可按当前扫描结论筛选；设备授权完成后显示明确状态。</td><td><a href="https://github.com/iflytek/skillhub/pull/1129">#1129</a> / <a href="https://github.com/iflytek/skillhub/pull/1126">#1126</a> / <a href="https://github.com/iflytek/skillhub/pull/1127">#1127</a></td></tr><tr><td>已发布 · DSH npm 0.7.0</td><td>DSH 与 Token 兼容</td><td>DSH 账号接入与命名空间成员管理发布 0.7.0；V129 保留历史 Token 权限范围，等待应用版本发布。</td><td><a href="https://github.com/iflytek/skillhub/pull/1114">#1114</a> / <a href="https://github.com/iflytek/skillhub/pull/1140">#1140</a> / <a href="https://github.com/iflytek/skillhub/pull/1142">#1142</a></td></tr>
     </tbody>
   </table></div>
 </section>
       <section class="report-section" data-module="ecosystem-progress">
   <h2>三、生态相关进展</h2>
-  <div class="ecosystem-signals" role="img" aria-label="社区参与者 11 人；Forks 827，较上次观测 +10；CLI 下载 1906 次">
-    <div><strong>11</strong> 社区参与者</div>
-    <div><strong>827</strong> Forks · 较上次观测 +10</div>
-    <div><strong>1,906</strong> CLI 下载 · 11-19—11-25</div>
+  <div class="ecosystem-signals" role="img" aria-label="本期 Issue/PR 作者 11 人；Forks 827，较上次观测 +10；CLI 下载 1906 次">
+    <div class="ecosystem-signal"><strong>11</strong><span>本期 Issue/PR 作者</span></div>
+    <div class="ecosystem-signal"><strong>827</strong><span>Forks · 较上次观测 +10</span></div>
+    <div class="ecosystem-signal"><strong>1,906</strong><span>CLI 下载 · 11-19—11-25</span></div>
   </div>
-  <p class="ecosystem-signal-note">三项信号相互独立，不构成转化漏斗。CLI 与 DSH 下载覆盖 11 月 19—25 日七个完整 UTC 日。</p>
+  <p class="ecosystem-signal-note">三项信号相互独立，不构成转化漏斗；同期 DSH 下载 799 次，CLI 与 DSH 均覆盖七个完整 UTC 日。</p>
   <ul class="ecosystem-list">
-    <li><strong>外部贡献</strong><span>outdated 命令（#1117）、同步版本来源（#1129）、扫描结论筛选（#1126）、DSH 账号接入（#1114）均由外部贡献者提交并合入。</span></li>
+    <li><strong>社区贡献</strong><span>outdated 命令（#1117）、同步版本来源（#1129）、扫描结论筛选（#1126）由社区贡献者提交并合入。</span></li>
     <li><strong>需求闭环</strong><span>仓库成套查看与整套安装（#1094）、CLI 诊断（#1122）、审核批量审批（#1096）已关闭。</span></li>
     <li><strong>文档与入口</strong><span>CLI 指南补充 upgrade/outdated 与诊断说明；DSH 0.7.0 支持账号登录与命名空间管理。</span></li>
   </ul>
 </section>
       <section class="report-section" data-module="next-actions">
-  <h2>下周关注</h2>
-  <ul class="next-actions">
-    <li>企业 OIDC 员工登录试点（R1-C）确定首个试点组织、负责人与观察窗口。</li><li>跟进 CLI 登录恢复 PR #1121 的重写提交，检查通过后合并。</li><li>定位 backend-tests 与 PR CLI 的失败原因，降低无效重跑。</li>
-  </ul>
+  <div class="next-actions">
+    <h2>下周关注</h2>
+    <ol>
+      <li>企业 OIDC 员工登录试点（R1-C）确定首个试点组织、负责人与观察窗口。</li><li>跟进 CLI 登录恢复 PR #1121 的新提交与检查，通过后合并。</li><li>定位 backend-tests 与 PR CLI 的失败原因，降低无效重跑。</li>
+    </ol>
+  </div>
 </section>
     </div>
 
@@ -1325,14 +1329,14 @@ footer {
     <div class="health-metric">27 <small>队列重评成功</small></div><p>Issue Triage 成功 19。</p><div class="detail">另有 29 次按条件跳过。</div></article><article class="health-card"><div class="top"><span class="name">版本交付</span><span class="status ok">应用与插件更新</span></div>
     <div class="health-metric">1 / 0 / 0 <small>应用 / CLI / DSH GitHub Release</small></div><p>应用 v0.2.28；DSH npm 0.7.0。</p><div class="detail">npm 与 GitHub Release 分别统计。</div></article><article class="health-card"><div class="top"><span class="name">Issue 治理</span><span class="status ok">关闭接近新增</span></div>
     <div class="health-metric">+2 <small>事件净流入</small></div><p>新增 13、关闭 11；开放 32。</p><div class="detail">15 个标记为 triage/needs-info。</div></article><article class="health-card"><div class="top"><span class="name">PR 治理</span><span class="status warn">新增多于合并</span></div>
-    <div class="health-metric">+5 <small>事件净流量</small></div><p>新增 20、合并 15；开放 13。</p><div class="detail">开放项包含 1 个草稿。</div></article></div>
+    <div class="health-metric">+5 <small>事件净流入</small></div><p>新增 20、合并 15；开放 13。</p><div class="detail">开放项包含 1 个草稿。</div></article></div>
 </section>
 <section class="report-section" data-module="workflow-execution">
   <h2>CI 与自动化执行</h2>
   <p class="section-lead">共 755 条运行记录；有效成功率 94.53%（570 / 603）。</p>
   <div class="chart-box" data-module="actions-outcome-chart">
     <h3>Actions 结果构成</h3>
-    <div class="segbar" role="img" aria-label="Actions 共 755 条：成功 570；失败 33；等待授权 4；跳过 86；取消 59；运行中 3">
+    <div class="segbar" role="img" aria-label="Actions 共 755 条：成功 570；失败 33；等待授权 4；运行中 3；跳过 86；取消 59">
 <span class="seg-success" style="width:75.496689%"></span>
 <span class="seg-failure" style="width:4.370861%"></span>
 <span class="seg-auth" style="width:0.529801%"></span>
@@ -1380,7 +1384,7 @@ footer {
   <h2>版本交付</h2>
   <div class="table-wrap"><table><caption class="sr-only">版本发布情况</caption><thead><tr><th>产品</th><th>本期版本</th><th>发布时间（北京时间）</th><th>证据</th></tr></thead><tbody>
 <tr><td>SkillHub</td><td>v0.2.28</td><td>11 月 20 日 19:28</td><td><a href="https://github.com/iflytek/skillhub/releases/tag/v0.2.28">GitHub Release</a></td></tr>
-<tr><td>DSH npm</td><td>0.7.0</td><td>11 月 25 日 18:13（发布 PR 合并）</td><td><a href="https://github.com/iflytek/skillhub/pull/1140">#1140</a></td></tr>
+<tr><td>DSH npm</td><td>0.7.0</td><td>11 月 25 日 19:29</td><td><a href="https://registry.npmjs.org/@astron-team/skillhub-dsh">npm 注册表</a> / <a href="https://github.com/iflytek/skillhub/pull/1140">#1140</a></td></tr>
 <tr><td>CLI</td><td>无新版本</td><td>—</td><td>npm 仍为 0.3.1；本期无 cli-* Release</td></tr>
 </tbody></table></div>
 </section>
@@ -1390,7 +1394,7 @@ footer {
   <h2>Issue 与 PR 流转</h2>
   <p>Issue 新增 13、关闭 11；PR 新增 20、合并 15、关闭未合并 0。已合并 PR 全部以 main 为目标分支。</p>
 </section>
-<section class="report-section" data-module="issues_created">
+<section class="report-section" data-module="issues-created">
   <h2>新增 Issue</h2>
   <div class="table-wrap"><table><caption class="sr-only">新增 Issue 完整清单</caption><thead><tr><th>编号</th><th>事项</th><th>作者</th><th>事件时间（北京时间）</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/iflytek/skillhub/issues/1110">#1110</a></td><td>feat(web): add suite-level version drift detection and bulk upgrade guard for GitHub-synced skill suites</td><td>FenjuFu</td><td>2026-11-20 10:41</td></tr>
@@ -1408,7 +1412,7 @@ footer {
 <tr><td><a href="https://github.com/iflytek/skillhub/issues/1144">#1144</a></td><td>Explain a pinned Skill Suite from its entry and member instructions</td><td>FenjuFu</td><td>2026-11-26 13:00</td></tr>
 </tbody></table></div>
 </section>
-<section class="report-section" data-module="issues_closed">
+<section class="report-section" data-module="issues-closed">
   <h2>关闭 Issue</h2>
   <div class="table-wrap"><table><caption class="sr-only">关闭 Issue 完整清单</caption><thead><tr><th>编号</th><th>事项</th><th>作者</th><th>事件时间（北京时间）</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/iflytek/skillhub/issues/1094">#1094</a></td><td>[Feature] 开源技能（@github）支持按仓库成套查看与整套安装</td><td>SAXEM1997</td><td>2026-11-20 11:07</td></tr>
@@ -1424,7 +1428,7 @@ footer {
 <tr><td><a href="https://github.com/iflytek/skillhub/issues/1137">#1137</a></td><td>[Invalid] Accidental duplicate — see #1095 (closed on creation)</td><td>SAXEM1997</td><td>2026-11-25 00:00</td></tr>
 </tbody></table></div>
 </section>
-<section class="report-section" data-module="prs_created">
+<section class="report-section" data-module="prs-created">
   <h2>新增 PR</h2>
   <div class="table-wrap"><table><caption class="sr-only">新增 PR 完整清单</caption><thead><tr><th>编号</th><th>事项</th><th>作者</th><th>事件时间（北京时间）</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/iflytek/skillhub/pull/1111">#1111</a></td><td>feat(github): install current published repository skills in one command</td><td>XiaoSeS</td><td>2026-11-20 14:35</td></tr>
@@ -1449,7 +1453,7 @@ footer {
 <tr><td><a href="https://github.com/iflytek/skillhub/pull/1146">#1146</a></td><td>feat(identity): add R1-C organization OIDC login pilot</td><td>XiaoSeS</td><td>2026-11-26 19:10</td></tr>
 </tbody></table></div>
 </section>
-<section class="report-section" data-module="prs_merged">
+<section class="report-section" data-module="prs-merged">
   <h2>合并 PR</h2>
   <div class="table-wrap"><table><caption class="sr-only">合并 PR 完整清单</caption><thead><tr><th>编号</th><th>事项</th><th>作者</th><th>事件时间（北京时间）</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/iflytek/skillhub/pull/1108">#1108</a></td><td>test(e2e): align market regression coverage and bound CI runs</td><td>XiaoSeS</td><td>2026-11-20 00:07</td></tr>
@@ -1478,7 +1482,7 @@ footer {
   <h2>统计口径</h2>
   <ul class="method-list">
     <li><strong>统计边界</strong><span><code>[2026-11-20T00:00:00+08:00, 2026-11-26T19:41:49+08:00)</code>（Asia/Shanghai）；统计时点与边界终点相同。</span></li>
-    <li><strong>边界衔接</strong><span>上一期按扩展统计范围结束于 2026-11-19 21:30:09；本期按周五 00:00 边界恢复，2026-11-19 21:30—24:00 的事件不计入本期。</span></li>
+    <li><strong>边界衔接</strong><span>上一期按扩展统计范围结束于 2026-11-19 21:30:09；本期按周五 00:00 边界恢复，2026-11-19 21:30—24:00 的事件未计入任何一期。</span></li>
     <li><strong>Issue 与 PR</strong><span>Issue 按 created_at、closed_at，PR 按 created_at、merged_at、closed_at 过滤；仅统计目标为 main 的 PR，关闭未合并单列。</span></li>
     <li><strong>Actions</strong><span>按 created_at 纳入；有效成功率 = success / (success + failure)，等待授权、运行中、跳过及取消单列。采集中有 3 条运行中记录。</span></li>
     <li><strong>Stars 证据</strong><span>当前 5,502（2026-11-26 19:41）；上期于 2026-11-19 21:31 观测 5,448，较上次观测 +54。认证查询完整 Stargazer 清单 5,502 条与库存一致；本期当前可见新增 83，新增与取消并存，不代表净增长。</span></li>
